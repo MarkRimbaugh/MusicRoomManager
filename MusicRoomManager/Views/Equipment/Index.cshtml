@@ -1,0 +1,146 @@
+﻿@model IEnumerable<MusicRoomManager.Models.Equipment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Equipment Inventory</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Equipment" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Equipment
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<table id="equipmentTable" class="table table-bordered table-striped display nowrap">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.IsAvailable)*@
+                    @if(item.IsAvailable)
+                    {
+                        <span class="is-available">Yes</span>
+                    }
+                    else{
+                        <span class="not-available">No</span>
+                    }
+                    
+                </td>
+            <td>
+                <div style="width:100%" class="btn-group" role="group">
+                    <a asp-controller="Equipment" asp-action="Edit" asp-route-id="@item.Id"
+                    class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i> Edit</a>
+                    <a data-bs-toggle="modal" data-bs-target="#equipmentDetailsModal" asp-controller="Equipment" asp-action="Details" asp-route-id="@item.Id"
+                        data-bs-brand="@item.Brand" 
+                        data-bs-model="@item.Model" 
+                        data-bs-type="@item.Type"
+                       class="btn btn-secondary mx-2">
+                            <i class="bi bi-question-square"></i> Details
+                    </a>
+                    <form method="post" asp-action="Delete" asp-route-id="@item.Id"><button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete @item.Model?')"><i class="bi bi-trash"></i> Delete</button></form>
+                </div>                
+            </td>
+        </tr>}
+    </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="equipmentDetailsModal" tabindex="-1" aria-labelledby="equipmentDetailsModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="detailsModal">Equipment Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Brand
+                    </dt>
+                    <dd class="col-sm-8">
+                        <span id="equipmentModalBrand">Brand</span>
+                    </dd>
+                    <dt class="col-sm-4">
+                        Model
+                    </dt>
+                    <dd class="col-sm-8">
+                        <span id="equipmentModalModel">Model</span>
+                    </dd>
+                    <dt class="col-sm-4">
+                        Type
+                    </dt>
+                    <dd class="col-sm-8">
+                        <span id="equipmentModalType">Type</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $("#equipmentTable").DataTable()
+        var detailsModal = document.getElementById("equipmentDetailsModal");
+        detailsModal.addEventListener('show.bs.modal', function(event){
+            var button = event.relatedTarget;
+            var brand = button.getAttribute('data-bs-brand');
+            var model = button.getAttribute('data-bs-model');
+            var type = button.getAttribute('data-bs-type');
+
+            var modalTitle = detailsModal.querySelector('.modal-title');
+            modalTitle.textContent = "Details";
+            
+            var modalBrand = detailsModal.querySelector("#equipmentModalBrand");
+            modalBrand.textContent = brand;
+
+            var modalModel = detailsModal.querySelector("#equipmentModalModel");
+            modalModel.textContent = model;
+
+            var modalType = detailsModal.querySelector("#equipmentModalType");
+            modalType.textContent = type;
+
+        });
+
+    </script>
+}

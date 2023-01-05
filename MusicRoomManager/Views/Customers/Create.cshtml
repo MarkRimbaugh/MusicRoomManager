@@ -1,0 +1,140 @@
+﻿@model MusicRoomManager.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Customer</h4>
+<hr />
+<form asp-action="Create">
+<div class="row">
+    <div class="col-md-12">
+        
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="LastName" class="control-label"></label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="FirstName" class="control-label"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="DateOfBirth" class="control-label"></label>
+                                <input asp-for="DateOfBirth" class="form-control" />
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="HomePhone" class="control-label"></label>
+                                <input asp-for="HomePhone" class="form-control"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="MobilePhone" class="control-label"></label>
+                                <input asp-for="MobilePhone" class="form-control"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="EmailAddress" class="control-label"></label>
+                                <input asp-for="EmailAddress" class="form-control" />
+                                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Street1" class="control-label"></label>
+                                <input asp-for="Street1" class="form-control" />
+                                <span asp-validation-for="Street1" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Street2" class="control-label"></label>
+                                <input asp-for="Street2" class="form-control" />
+                                <span asp-validation-for="Street2" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="City" class="control-label"></label>
+                                <input asp-for="City" class="form-control" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="StateId" class="control-label"></label>
+                                <select asp-for="StateId" class="form-control" asp-items="ViewBag.StateId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Zip" class="control-label"></label>
+                                <input asp-for="Zip" class="form-control" />
+                                <span asp-validation-for="Zip" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 25px">
+                <div class="col-md-6">
+                    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group float-end">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+            
+        
+    </div>
+</div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
