@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicRoomManager.Migrations
 {
-    public partial class createdatabasewithtables : Migration
+    public partial class createdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -216,7 +216,7 @@ namespace MusicRoomManager.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EquipmentRental",
+                name: "EquipmentRentals",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -229,25 +229,90 @@ namespace MusicRoomManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EquipmentRental", x => x.Id);
+                    table.PrimaryKey("PK_EquipmentRentals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EquipmentRental_AspNetUsers_UserId",
+                        name: "FK_EquipmentRentals_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EquipmentRental_Customers_CustomerId",
+                        name: "FK_EquipmentRentals_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EquipmentRental_Equipment_EquipmentId",
+                        name: "FK_EquipmentRentals_Equipment_EquipmentId",
                         column: x => x.EquipmentId,
                         principalTable: "Equipment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "States",
+                columns: new[] { "Id", "Abbreviation", "Name" },
+                values: new object[,]
+                {
+                    { 1, "AL", "Alabama" },
+                    { 2, "AK", "Alaska" },
+                    { 3, "AZ", "Arizona" },
+                    { 4, "AR", "Arkansas" },
+                    { 5, "CA", "California" },
+                    { 6, "CO", "Colorado" },
+                    { 7, "CT", "Connecticut" },
+                    { 8, "DE", "Delaware" },
+                    { 9, "DC", "District of Columbia" },
+                    { 10, "FL", "Florida" },
+                    { 11, "GA", "Georgia" },
+                    { 12, "HI", "Hawaii" },
+                    { 13, "ID", "Idaho" },
+                    { 14, "IL", "Illinois" },
+                    { 15, "IN", "Indiana" },
+                    { 16, "IA", "Iowa" },
+                    { 17, "KS", "Kansas" },
+                    { 18, "KY", "Kentucky" },
+                    { 19, "LA", "Louisiana" },
+                    { 20, "ME", "Maine" },
+                    { 21, "MD", "Maryland" },
+                    { 22, "MS", "Massachusetts" },
+                    { 23, "MI", "Michigan" },
+                    { 24, "MN", "Minnesota" },
+                    { 25, "MS", "Mississippi" },
+                    { 26, "MO", "Missouri" },
+                    { 27, "MT", "Montana" },
+                    { 28, "NE", "Nebraska" },
+                    { 29, "NV", "Nevada" },
+                    { 30, "NH", "New Hampshire" },
+                    { 31, "NJ", "New Jersey" },
+                    { 32, "NM", "New Mexico" },
+                    { 33, "NY", "New York" },
+                    { 34, "NC", "North Carolina" },
+                    { 35, "ND", "North Dakota" },
+                    { 36, "OH", "Ohio" },
+                    { 37, "OK", "Oklahoma" },
+                    { 38, "OR", "Oregon" },
+                    { 39, "PA", "Pennsylvania" },
+                    { 40, "RI", "Rhode Island" },
+                    { 41, "SC", "South Carolina" },
+                    { 42, "SD", "South Dakota" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "States",
+                columns: new[] { "Id", "Abbreviation", "Name" },
+                values: new object[,]
+                {
+                    { 43, "TN", "Tennessee" },
+                    { 44, "TX", "Texas" },
+                    { 45, "UT", "Utah" },
+                    { 46, "VT", "Vermont" },
+                    { 47, "VA", "Virginia" },
+                    { 48, "WA", "Washington" },
+                    { 49, "WV", "West Virginia" },
+                    { 50, "WI", "Wisconsin" },
+                    { 51, "WY", "Wyoming" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -295,18 +360,18 @@ namespace MusicRoomManager.Migrations
                 column: "StateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentRental_CustomerId",
-                table: "EquipmentRental",
+                name: "IX_EquipmentRentals_CustomerId",
+                table: "EquipmentRentals",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentRental_EquipmentId",
-                table: "EquipmentRental",
+                name: "IX_EquipmentRentals_EquipmentId",
+                table: "EquipmentRentals",
                 column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentRental_UserId",
-                table: "EquipmentRental",
+                name: "IX_EquipmentRentals_UserId",
+                table: "EquipmentRentals",
                 column: "UserId");
         }
 
@@ -328,7 +393,7 @@ namespace MusicRoomManager.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "EquipmentRental");
+                name: "EquipmentRentals");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

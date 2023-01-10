@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicRoomManager.Data;
 
@@ -11,9 +12,10 @@ using MusicRoomManager.Data;
 namespace MusicRoomManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230110205447_create-db")]
+    partial class createdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,88 +323,6 @@ namespace MusicRoomManager.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Equipment");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Brand = "Fender",
-                            IsAvailable = true,
-                            Model = "Stratocaster",
-                            Type = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Brand = "Gibson",
-                            IsAvailable = true,
-                            Model = "Les Paul",
-                            Type = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Brand = "Taylor",
-                            IsAvailable = true,
-                            Model = "214ce",
-                            Type = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Brand = "Fender",
-                            IsAvailable = true,
-                            Model = "Telecaster",
-                            Type = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Brand = "Yamaha",
-                            IsAvailable = true,
-                            Model = "Clavinova",
-                            Type = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Brand = "Line6",
-                            IsAvailable = true,
-                            Model = "JTV-89F",
-                            Type = 0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Brand = "Fender",
-                            IsAvailable = true,
-                            Model = "Mustang GTX-100",
-                            Type = 5
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Brand = "Mesa",
-                            IsAvailable = true,
-                            Model = "Boogie Mark V",
-                            Type = 5
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Brand = "Schecter",
-                            IsAvailable = true,
-                            Model = "Stiletto Stealth 4",
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Brand = "Roland",
-                            IsAvailable = true,
-                            Model = "VAD 706",
-                            Type = 4
-                        });
                 });
 
             modelBuilder.Entity("MusicRoomManager.Models.EquipmentRental", b =>

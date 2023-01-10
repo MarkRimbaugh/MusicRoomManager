@@ -157,7 +157,7 @@ namespace MusicRoomManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Return(int id, EquipmentRental equipmentRental)
         {
-            equipmentRental = await _context.EquipmentRental.FindAsync(id);
+            equipmentRental = await _context.EquipmentRentals.FindAsync(id);
 
             equipmentRental.CheckedInDate = DateTime.Now;
 
