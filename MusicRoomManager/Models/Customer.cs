@@ -34,7 +34,7 @@ namespace MusicRoomManager.Models
         public string Zip { get; set; }
 
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date), Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
 
         [DataType(DataType.PhoneNumber), Display(Name = "Home Phone")]

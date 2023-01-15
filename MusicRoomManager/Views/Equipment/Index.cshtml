@@ -61,23 +61,23 @@
                     
                 </td>
             <td>
-                <div style="width:100%" class="btn-group" role="group">
-                    <a asp-controller="Equipment" asp-action="Edit" asp-route-id="@item.Id"
-                    class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i> Edit</a>
-                    <a data-bs-toggle="modal" data-bs-target="#equipmentDetailsModal" asp-controller="Equipment" asp-action="Details" asp-route-id="@item.Id"
+                <div style="width:100%" class="btn-group" role="group" >
+                    <a style="width:33%" asp-controller="Equipment" asp-action="Edit" asp-route-id="@item.Id"
+                    class="btn btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a style="width:33%" data-bs-toggle="modal" data-bs-target="#equipmentDetailsModal" asp-controller="Equipment" asp-action="Details" asp-route-id="@item.Id"
                         data-bs-brand="@item.Brand" 
                         data-bs-model="@item.Model" 
                         data-bs-type="@item.Type"
-                       class="btn btn-secondary mx-2">
-                            <i class="bi bi-question-square"></i> Details
+                       class="btn btn-secondary">
+                        <i class="bi bi-question-square"></i> Details
                     </a>
-                    <form method="post" asp-action="Delete" asp-route-id="@item.Id"><button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete @item.Model?')"><i class="bi bi-trash"></i> Delete</button></form>
+                        <a class="btn btn-danger" style="width: 33%" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
+                    @*<form class="btn" method="post" asp-action="Delete" asp-route-id="@item.Id"><button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete @item.Model?')"><i class="bi bi-trash"></i> Delete</button></form>*@
                 </div>                
             </td>
         </tr>}
     </tbody>
 </table>
-
 
 
 <!-- Modal -->

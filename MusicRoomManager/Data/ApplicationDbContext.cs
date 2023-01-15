@@ -18,10 +18,7 @@ namespace MusicRoomManager.Data
         {
         }
 
-        public ApplicationDbContext()
-        {
-
-        }
+        public ApplicationDbContext() { }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -97,6 +94,21 @@ namespace MusicRoomManager.Data
                     new Equipment() { Id = 8, Brand = "Mesa", Model = "Boogie Mark V", Type = EquipmentType.Amplifier, IsAvailable = true },
                     new Equipment() { Id = 9, Brand = "Schecter", Model = "Stiletto Stealth 4", Type = EquipmentType.BassGuitar, IsAvailable = true },
                     new Equipment() { Id = 10, Brand = "Roland", Model = "VAD 706", Type = EquipmentType.Drums, IsAvailable = true }
+                );
+            });
+            modelBuilder.Entity<Customer>(x =>
+            {
+                x.HasData(
+                    new Customer() { Id = 1, FirstName = "Bob", LastName = "Ahsan", Street1 = "1757 Hayes Drive", Street2 = "Apt 138", City = "North Liberty", StateId = 15, Zip = "46508", HomePhone = "555-456-5790", MobilePhone = "555-489-5749", EmailAddress = "bahsan@mail.com", DateOfBirth = new DateTime(1982, 02, 03) },
+                    new Customer() { Id = 2, FirstName = "Tom", LastName = "Chicurel", Street1 = "3349 Bailey Highway", Street2 = "NA", City = "South Bend", StateId = 15, Zip = "49804", HomePhone = "555-456-4570", MobilePhone = "555-415-4368", EmailAddress = "tchicurel@mail.com", DateOfBirth = new DateTime(1989, 01, 17) },
+                    new Customer() { Id = 3, FirstName = "Elizabeth", LastName = "Koller", Street1 = "4502 Madison Drive", Street2 = "Apt 3B", City = "Walkerton", StateId = 15, Zip = "46984", HomePhone = "555-798-4596", MobilePhone = "555-789-4321", EmailAddress = "ekoller@mail.com", DateOfBirth = new DateTime(1985, 07, 10) },
+                    new Customer() { Id = 4, FirstName = "Steve", LastName = "Humphreys", Street1 = "4565 Schroeder Forest Avenue", Street2 = "NA", City = "Leesville", StateId = 19, Zip = "68945", HomePhone = "555-786-8975", MobilePhone = "555-249-5792", EmailAddress = "shumphreys@mail.com", DateOfBirth = new DateTime(1979, 04, 14) },
+                    new Customer() { Id = 5, FirstName = "Rose", LastName = "Voelkel", Street1 = "9807 Henderson Road", Street2 = "Apt 087", City = "Hope Mills", StateId = 34, Zip = "89707", HomePhone = "555-970-1456", MobilePhone = "555-798-0465", EmailAddress = "rvoelkel@mail.com", DateOfBirth = new DateTime(1972, 10, 30) },
+                    new Customer() { Id = 6, FirstName = "Grace", LastName = "Greenfield", Street1 = "27384 Martin Avenue", Street2 = "NA", City = "Wasilla", StateId = 2, Zip = "16591", HomePhone = "555-579-5647", MobilePhone = "555-579-6780", EmailAddress = "ggreenfield@mail.com", DateOfBirth = new DateTime(1990, 12, 12) },
+                    new Customer() { Id = 7, FirstName = "Joe", LastName = "Diederich", Street1 = "4809 Witting Parkway", Street2 = "NA", City = "Palmer", StateId = 2, Zip = "98705", HomePhone = "555-129-7980", MobilePhone = "555-978-5706", EmailAddress = "jdiederich@mail.com", DateOfBirth = new DateTime(1977, 08, 05) },
+                    new Customer() { Id = 8, FirstName = "Scott", LastName = "Stewart", Street1 = "321 Bradtke Ville", Street2 = "Ste 101", City = "Indianapolis", StateId = 15, Zip = "59498", HomePhone = "555-678-5794", MobilePhone = "555-579-5749", EmailAddress = "sstewart@mail.com", DateOfBirth = new DateTime(1980, 08, 12) },
+                    new Customer() { Id = 9, FirstName = "Gina", LastName = "Riesman", Street1 = "28907 Erdman Points", Street2 = "NA", City = "Lakeville", StateId = 15, Zip = "46898", HomePhone = "555-878-9713", MobilePhone = "555-789-6498", EmailAddress = "griesman@mail.com", DateOfBirth = new DateTime(1962, 09, 08) },
+                    new Customer() { Id = 10, FirstName = "Bill", LastName = "Rhodes", Street1 = "2417 Schmidt Drive", Street2 = "NA", City = "Mishawaka", StateId = 15, Zip = "49849", HomePhone = "555-579-5914", MobilePhone = "555-789-8978", EmailAddress = "brhodes@mail.com", DateOfBirth = new DateTime(1985, 01, 22) }
                 );
             });
         }
