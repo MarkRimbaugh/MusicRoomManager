@@ -291,7 +291,7 @@ namespace MusicRoomManager.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
 
                     b.HasData(
                         new
@@ -472,7 +472,7 @@ namespace MusicRoomManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Equipment");
+                    b.ToTable("Equipment", (string)null);
 
                     b.HasData(
                         new
@@ -589,7 +589,7 @@ namespace MusicRoomManager.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("EquipmentRentals");
+                    b.ToTable("EquipmentRentals", (string)null);
                 });
 
             modelBuilder.Entity("MusicRoomManager.Models.State", b =>
@@ -611,7 +611,7 @@ namespace MusicRoomManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("States");
+                    b.ToTable("States", (string)null);
 
                     b.HasData(
                         new
