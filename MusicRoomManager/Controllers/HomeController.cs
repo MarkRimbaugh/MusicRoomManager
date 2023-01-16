@@ -15,6 +15,11 @@ namespace MusicRoomManager.Controllers
 
         public IActionResult Index()
         {
+            if (User?.Identity?.Name?.ToString().Length > 0)
+            {
+                return RedirectToAction("Index", "EquipmentRentals");
+
+            }
             return View();
         }
 
