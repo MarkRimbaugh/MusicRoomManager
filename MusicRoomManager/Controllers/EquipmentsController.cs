@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicRoomManager.Data;
 using MusicRoomManager.Models;
 
 namespace MusicRoomManager.Controllers
 {
+    [Authorize]
     public class EquipmentController : Controller
     {
         private readonly ApplicationDbContext _context;

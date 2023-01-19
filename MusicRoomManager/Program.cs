@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using MusicRoomManager.Data;
-using Microsoft.AspNetCore.Identity;
 
 namespace MusicRoomManager
 {
@@ -16,7 +15,7 @@ namespace MusicRoomManager
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
